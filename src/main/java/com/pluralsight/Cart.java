@@ -15,3 +15,9 @@ public class Cart {
         }
         items.add(new CartItem(product, qty));
     }
+    public void clear() { items.clear(); }
+    public double getTotal() {
+        double total = 0;
+        for (CartItem item : items) total += item.getTotal();
+        return total;
+    }}
