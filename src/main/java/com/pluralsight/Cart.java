@@ -15,9 +15,24 @@ public class Cart {
         }
         items.add(new CartItem(product, qty));
     }
+
     public void clear() { items.clear(); }
     public double getTotal() {
         double total = 0;
         for (CartItem item : items) total += item.getTotal();
         return total;
-    }}
+    }
+
+    public void displayCart() {
+        if (items.isEmpty()) {
+            System.out.println("\n🛍️  Your cart is empty.");
+        } else {
+            System.out.println("\n===== 🛒 YOUR CART =====");
+            for (CartItem item : items) System.out.println(item);
+            System.out.printf("\nTOTAL: $%.2f\n", getTotal());
+        }
+    }
+
+    public boolean isEmpty() { return items.isEmpty(); }
+    public List<CartItem> getItems() { return items; }
+}
